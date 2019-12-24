@@ -17,5 +17,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'PagesController@login');
+Route::get('/logout', 'PagesController@logout')->name('logout');
 Route::post('/login', 'LoginController@authenticate')->name('login');
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
+Route::post('/order', 'OrderController@create')->name('order');
