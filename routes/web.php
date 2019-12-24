@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', 'PagesController@login');
+Route::post('/login', 'LoginController@authenticate')->name('login');
