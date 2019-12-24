@@ -1,6 +1,6 @@
 @extends('layout')
 @section('page_title')
-About Us
+Login
 @endsection
 
 @section('content')

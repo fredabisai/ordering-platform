@@ -17,14 +17,8 @@ class LoginController extends Controller
             'password' => 'required|string|min:5'
         );
 
-        $validator = $request->validate($rules);
+        $request->validate($rules);
 
-
-        // if ($validator->fails()) {
-        //     return Redirect::to('login')
-        //         ->withErrors($validator)
-        //         ->withInput(Input::except('password'));
-        // } else {
 
         $user_data = array(
             'email'     => $request->get('email'),
@@ -33,11 +27,10 @@ class LoginController extends Controller
 
         if (Auth::attempt($user_data)) {
 
-            echo 'SUCCESS!';
+            return Redirect::to('dashboard');
         } else {
 
             return Redirect::to('login');
         }
-        // }
     }
 }

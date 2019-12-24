@@ -18,3 +18,4 @@
 // });
 Route::get('/', 'PagesController@login');
 Route::post('/login', 'LoginController@authenticate')->name('login');
+Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
