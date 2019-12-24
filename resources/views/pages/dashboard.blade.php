@@ -20,7 +20,7 @@ Login
                  <select class="form-control" name="product_id" id="product_id" @error('product_id') is-invalid @enderror>
                    <option value="">Choose Product</option>
                   @foreach($products as $product)
-                  <option value="{{$product->id}}">{{$product->name}}</option>
+                  <option value="{{$product->id}}">{{$product->name}}-Weight: {{$product->weight}}gms-{{$product->price}}Tsh</option>
                   @endforeach
 
                  </select>
@@ -35,7 +35,7 @@ Login
                 <select class="form-control" name="location_id" id="location_id" @error('location_id') is-invalid @enderror>
                   <option value="">Choose Location</option>
                   @foreach($locations as $location)
-                  <option value="{{$location->id}}">{{$location->name}}</option>
+                  <option value="{{$location->id}}">{{$location->name}}-{{$location->price}}Tsh</option>
                   @endforeach
                 </select>
                 @error('location_id')
@@ -67,6 +67,7 @@ Login
           <tr>
             <th>Product</th>
             <th>Location</th>
+            <th>Weight(gms)</th>
             <th>Total Price</th>
           </tr>
         </thead>
@@ -75,6 +76,7 @@ Login
           <tr>
            <td>{{ $order->product->name}}</td>
             <td>{{ $order->location->name}}</td>
+            <td>{{ $order->product->weight}}</td>
             <td>{{ $order->total_price}}</td>
           </tr>
           @endforeach
