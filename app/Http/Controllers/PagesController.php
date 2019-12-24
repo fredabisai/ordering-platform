@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Location;
+use App\Product;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -12,6 +14,8 @@ class PagesController extends Controller
     }
     public function dashboard()
     {
-        return view('pages.dashboard');
+        $locations = Location::all();
+        $products = Product::all();
+        return view('pages.dashboard', ['products' => $products, 'locations' => $locations]);
     }
 }
